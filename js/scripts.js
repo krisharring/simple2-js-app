@@ -2,4 +2,4 @@ alert('Hello World');
 
 
 let favoriteFood = 'Chicken';
-console.log(favoriteFood);
+document.write(favoriteFood);
