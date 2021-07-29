@@ -5,13 +5,13 @@ let PokemenList = [
     height: 1.5,
     weight: 82.5,
     abilities: ['download'],
-  }
+  },
   {
     name: 'Shuckle',
     height: 0.6,
     weight: 20.5,
     abilities: ['Sturdy', 'Gluttony', 'Contrary'],
-  }
+  },
   {
     name: 'Loudred',
     height: 1,
@@ -19,3 +19,4 @@ let PokemenList = [
     abilities: ['Soundproof', 'Scrappy'],
   }
 ];
+
