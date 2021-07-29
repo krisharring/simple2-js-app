@@ -20,3 +20,17 @@ let PokemenList = [
   }
 ];
 
+
+//loop of PokemanList names (how do i add spaces between the names?)
+//let nameArray = [ 'Genesect', 'Shuckle', 'Loudred'];
+//for (let i=0; i < nameArray.length; i++){
+//  document.write(nameArray[i]);
+//}
+
+//Use what you’ve learned about adding strings in JavaScript to write the Pokémon’s height next to its name, for example, “Bulbasaur (height: 7)”.
+
+for (let i = 0; i < PokemenList.length; i++){
+		document.write(`<p> "${PokemenList[i].name} (height: ${PokemenList[i].height})" </p>`);
+	}
+
+
