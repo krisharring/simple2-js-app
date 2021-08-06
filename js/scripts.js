@@ -57,6 +57,7 @@ let PokemenList = [
 
 //cleaner forEach() code using myLoopFunction
 function myLoopFunction(Pokemen) {
-  console.log(Pokemen.name + ' is ' + Pokemen.height + ' tall.');
+  console.log(Pokemen.name + ' is ' + Pokemen.height + ' tall and weighs' + Pokemen.weight + ' . ');
+  console.log(Pokemen.name + ' can ' + Pokemen.abilities + ' . ');
 }
 PokemenList.forEach(myLoopFunction);
