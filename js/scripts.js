@@ -82,7 +82,7 @@ pokemenRepository.getAll().forEach(function(pokemen){
   } else {
         document.write(`<p> "${PokemenList[i].name} (height: ${PokemenList[i].height})" </p>`);
   }
-
+  //keeping code to use later
   //console.log(Pokemen.name + ' is ' + Pokemen.height + ' tall and weighs' + Pokemen.weight + ' . ');
   //console.log(Pokemen.name + ' can ' + Pokemen.abilities + ' . ');
 })
