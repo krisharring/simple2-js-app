@@ -1,24 +1,44 @@
-//Pokemen Array List
-let PokemenList = [
-  {
-    name: 'Genesect',
-    height: 1.5,
-    weight: 82.5,
-    abilities: ['download'],
-  },
-  {
-    name: 'Shuckle',
-    height: 0.6,
-    weight: 20.5,
-    abilities: ['Sturdy', 'Gluttony', 'Contrary'],
-  },
-  {
-    name: 'Loudred',
-    height: 1,
-    weight: 40.5,
-    abilities: ['Soundproof', 'Scrappy'],
+//wrap Pokemon ArrayList in IIFE 
+
+let pokemenRepository = (function () {
+  let PokemenList = [
+    {
+      name: 'Genesect',
+      height: 1.5,
+      weight: 82.5,
+      abilities: ['download'],
+    },
+    {
+      name: 'Shuckle',
+      height: 0.6,
+      weight: 20.5,
+      abilities: ['Sturdy', 'Gluttony', 'Contrary'],
+    },
+    {
+      name: 'Loudred',
+      height: 1,
+      weight: 40.5,
+      abilities: ['Soundproof', 'Scrappy'],
+    }
+  ]; // PokemenList array
+
+  function add(pokemen) {
+    PokemenList.push(pokemen);
   }
-];
+
+  function getAll() {
+    return PokemenList;
+  }
+
+  return {
+    add: add,
+    getAll: getAll
+  };
+}) ();
+
+console.log(pokemenRepository.getAll()); // []
+pokemonRepository.add({ name: 'Genesect' });
+console.log(pokemenRepository.getAll()); // [ { name: 'Genesect' } ]
 
 
 //loop of PokemanList names (how do i add spaces between the names?)
@@ -55,10 +75,14 @@ let PokemenList = [
 //  console.log(Pokemen.name + ' is ' + Pokemen.height + ' tall ');
 //});
 
-//cleaner forEach() code using myLoopFunction
-function myLoopFunction(Pokemen) {
-  console.log(Pokemen.name + ' is ' + Pokemen.height + ' tall and weighs' + Pokemen.weight + ' . ');
-  console.log(Pokemen.name + ' can ' + Pokemen.abilities + ' . ');
-}
-PokemenList.forEach(myLoopFunction);
+//cleaner forEach() code using myLoopFunction -- updated to include new IIFE
+pokemenRepository.getAll().forEach(function(pokemen){
+  if (PokemenList[i].height > 1) {
+        document.write(`<p> "${PokemenList[i].name} (height: ${PokemenList[i].height})" <b> I am the Tallest Pokemen!</b> </p>`)
+  } else {
+        document.write(`<p> "${PokemenList[i].name} (height: ${PokemenList[i].height})" </p>`);
+  }
 
+  //console.log(Pokemen.name + ' is ' + Pokemen.height + ' tall and weighs' + Pokemen.weight + ' . ');
+  //console.log(Pokemen.name + ' can ' + Pokemen.abilities + ' . ');
+})
