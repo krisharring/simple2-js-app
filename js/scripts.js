@@ -61,3 +61,4 @@ function myLoopFunction(Pokemen) {
   console.log(Pokemen.name + ' can ' + Pokemen.abilities + ' . ');
 }
 PokemenList.forEach(myLoopFunction);
+
