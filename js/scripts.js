@@ -36,8 +36,8 @@ let pokemenRepository = (function () {
   };
 }) ();
 
-console.log(pokemenRepository.getAll()); // []
-pokemonRepository.add({ name: 'Genesect' });
+consoe.log(pokemenRepository.getAll()); // []
+pokemenRepository.add({ name: 'Genesect' });
 console.log(pokemenRepository.getAll()); // [ { name: 'Genesect' } ]
 
 
@@ -76,13 +76,15 @@ console.log(pokemenRepository.getAll()); // [ { name: 'Genesect' } ]
 //});
 
 //cleaner forEach() code using myLoopFunction -- updated to include new IIFE
-pokemenRepository.getAll().forEach(function(pokemen){
-  if (PokemenList[i].height > 1) {
-        document.write(`<p> "${PokemenList[i].name} (height: ${PokemenList[i].height})" <b> I am the Tallest Pokemen!</b> </p>`)
-  } else {
-        document.write(`<p> "${PokemenList[i].name} (height: ${PokemenList[i].height})" </p>`);
-  }
-  //keeping code to use later
-  //console.log(Pokemen.name + ' is ' + Pokemen.height + ' tall and weighs' + Pokemen.weight + ' . ');
-  //console.log(Pokemen.name + ' can ' + Pokemen.abilities + ' . ');
-})
+pokemenRepository.getAll().forEach(function(pokemen) {
+    if (pokemen.height > 1) {
+      document.write(`<p> "${pokemen.name} (height: ${pokemen.height})" <b> I am the Tallest Pokemen!</b> </p>`);
+    } else {
+      document.write(`<p> "${pokemen.name} (height: ${pokemen.height})" </p>`);
+    }
+    //keeping code to use later
+    //console.log(Pokemen.name + ' is ' + Pokemen.height + ' tall and weighs' + Pokemen.weight + ' . ');
+    //console.log(Pokemen.name + ' can ' + Pokemen.abilities + ' . ');
+  })
+
+
