@@ -36,7 +36,7 @@ let pokemenRepository = (function () {
   };
 }) ();
 
-consoe.log(pokemenRepository.getAll()); // []
+console.log(pokemenRepository.getAll()); // []
 pokemenRepository.add({ name: 'Genesect' });
 console.log(pokemenRepository.getAll()); // [ { name: 'Genesect' } ]
 
