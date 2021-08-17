@@ -29,62 +29,64 @@ let pokemenRepository = (function () {
   function getAll() {
     return PokemenList;
   }
-
+  function addListItem(pokemen){
+  let pokemenList = document.querySelector('.pokemen-list');
+  let listItem = document.createElement('li');
+  let button = document.createElement('button');
+  button.innerText = pokemen.name;
+  button.classList.add("button-class");
+  listItem.appendChild(button);
+  pokemenList.appendChild(listItem);
+  }
   return {
     add: add,
-    getAll: getAll
+    getAll: getAll,
+    addListItem: addListItem
   };
 }) ();
 
-console.log(pokemenRepository.getAll()); // []
-pokemenRepository.add({ name: 'Genesect' });
-console.log(pokemenRepository.getAll()); // [ { name: 'Genesect' } ]
+pokemenRepository.add({ name: 'Kris' });
+console.log(pokemenRepository.getAll());
 
 
-//loop of PokemanList names (how do i add spaces between the names?)
-//let nameArray = [ 'Genesect', 'Shuckle', 'Loudred'];
-//for (let i=0; i < nameArray.length; i++){
-//  document.write(nameArray[i]);
-//}
+//console.log(this, "this is outside", this == document)
+/*
+PBV vs PBR
+const testObj = {};
+const testObj2 = {};
+const testObj3 = testObj;
+const aString = 'hello again';
+const stringAlong = aString;
+const anotherString = 'hello';
+console.log(aString === anotherString);
+console.log(testObj === testObj3)
+*/
 
-//Use what you’ve learned about adding strings in JavaScript to write the Pokémon’s height next to its name, 
-//for example, “Bulbasaur (height: 7)”.
-
-//for (let i = 0; i < PokemenList.length; i++){
-//		document.write(`<p> "${PokemenList[i].name} (height: ${PokemenList[i].height})" </p>`);
-//	}
-
-//Next, add code to highlight special Pokémon in your list. Be sure to keep adding comments to explain and 
-//document what your code does. Within the loop, add a conditional. The conditional should check if the height 
-//is above a certain value (you’re free to pick whatever value you want). If it is, add the note “Wow, that’s big!” 
-//to the output. Make sure you set up the conditional so that only one Pokémon has the label “Wow, that’s big!” 
-//It could, for example, look like this: “Bulbasaur (height: 7) - Wow, that’s big!”. 
-//For example, if you had the following array:
-
-//for (let i=0; i < PokemenList.length; i++){
-//  if (PokemenList[i].height > 1) {
-//    document.write(`<p> "${PokemenList[i].name} (height: ${PokemenList[i].height})" <b> I am the Tallest Pokemen!</b> </p>`)
-//  }
-//  else {
-//  document.write(`<p> "${PokemenList[i].name} (height: ${PokemenList[i].height})" </p>`);
-//  }
-//}
-
-//forEach() function below
-//PokemenList.forEach(function(Pokemen){
-//  console.log(Pokemen.name + ' is ' + Pokemen.height + ' tall ');
-//});
 
 //cleaner forEach() code using myLoopFunction -- updated to include new IIFE
+
 pokemenRepository.getAll().forEach(function(pokemen) {
-    if (pokemen.height > 1) {
-      document.write(`<p> "${pokemen.name} (height: ${pokemen.height})" <b> I am the Tallest Pokemen!</b> </p>`);
-    } else {
-      document.write(`<p> "${pokemen.name} (height: ${pokemen.height})" </p>`);
-    }
-    //keeping code to use later
-    //console.log(Pokemen.name + ' is ' + Pokemen.height + ' tall and weighs' + Pokemen.weight + ' . ');
-    //console.log(Pokemen.name + ' can ' + Pokemen.abilities + ' . ');
+  pokemenRepository.addListItem(pokemen);
+
+  //console.log(this, "this is inside")
+  //console.log(Array.isArray(pokemen));
+
+  // --section was moved to function addListItem()--
+  // let pokemenList = document.querySelector('.pokemen-list');
+  // let listItem = document.createElement('li');
+  // let button = document.createElement('button');
+  // button.innerText = pokemen.name;
+  // button.classList.add("button-class");
+  // listItem.appendChild(button);
+  // pokemenList.appendChild(listItem);
+
+  // console.log(pokemen.length)
+  //   if (pokemen.height > 1) {
+  //     document.write(/*`<p> "${pokemen.name} (height: ${pokemen.height})" <b> I am the Tallest Pokemen!</b> </p>`*/);
+  //   } else {
+  //     document.write(/*`<p> "${pokemen.name} (height: ${pokemen.height})" </p>`*/);
+  //   }
+  //   //keeping code to use later
+  //   //console.log(Pokemen.name + ' is ' + Pokemen.height + ' tall and weighs' + Pokemen.weight + ' . ');
+  //   //console.log(Pokemen.name + ' can ' + Pokemen.abilities + ' . ');
   })
-
-
