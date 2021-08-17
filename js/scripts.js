@@ -29,20 +29,36 @@ let pokemenRepository = (function () {
   function getAll() {
     return PokemenList;
   }
+
   function addListItem(pokemen){
-  let pokemenList = document.querySelector('.pokemen-list');
-  let listItem = document.createElement('li');
-  let button = document.createElement('button');
-  button.innerText = pokemen.name;
-  button.classList.add("button-class");
-  listItem.appendChild(button);
-  pokemenList.appendChild(listItem);
+    let pokemenList = document.querySelector('.pokemen-list');
+    let listItem = document.createElement('li');
+    let button = document.createElement('button');
+    button.innerText = pokemen.name;
+    button.classList.add("button-class");
+    listItem.appendChild(button);
+    pokemenList.appendChild(listItem);
+    button.addEventListener('click', function(event){
+      showDetails(pokemen);
+    });
   }
+
+  function showDetails(listItem){
+    pokemenRepository.loadDetails(listItem).then(function () {
+      console.log(listItem);
+    });
+  }
+
+  function showDetails(pokemen){
+    console.log(pokemen.name);
+  }
+
   return {
     add: add,
     getAll: getAll,
-    addListItem: addListItem
-  };
+    addListItem: addListItem,
+    showDetails: showDetails,
+    };
 }) ();
 
 pokemenRepository.add({ name: 'Kris' });
@@ -65,9 +81,9 @@ console.log(testObj === testObj3)
 
 //cleaner forEach() code using myLoopFunction -- updated to include new IIFE
 
-pokemenRepository.getAll().forEach(function(pokemen) {
-  pokemenRepository.addListItem(pokemen);
-
+  pokemenRepository.getAll().forEach(function(pokemen) {
+    pokemenRepository.addListItem(pokemen);
+  });
   //console.log(this, "this is inside")
   //console.log(Array.isArray(pokemen));
 
@@ -89,4 +105,3 @@ pokemenRepository.getAll().forEach(function(pokemen) {
   //   //keeping code to use later
   //   //console.log(Pokemen.name + ' is ' + Pokemen.height + ' tall and weighs' + Pokemen.weight + ' . ');
   //   //console.log(Pokemen.name + ' can ' + Pokemen.abilities + ' . ');
-  })
