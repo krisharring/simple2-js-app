@@ -1,26 +1,24 @@
 //wrap Pokemon ArrayList in IIFE 
-
 let pokemenRepository = (function () {
-  let PokemenList = [
-    // {
-    //   name: 'Genesect',
-    //   height: 1.5,
-    //   weight: 82.5,
-    //   abilities: ['download'],
-    // },
-    // {
-    //   name: 'Shuckle',
-    //   height: 0.6,
-    //   weight: 20.5,
-    //   abilities: ['Sturdy', 'Gluttony', 'Contrary'],
-    // },
-    // {
-    //   name: 'Loudred',
-    //   height: 1,
-    //   weight: 40.5,
-    //   abilities: ['Soundproof', 'Scrappy'],
-    // }
-  ]; // PokemenList empty array
+  //modal
+let modalContainer = document.querySelector('#modal-container');
+let modal = document.querySelector('.modal');
+let modalClose = document.createElement('button');
+  modalClose.classList.add('modal-close');
+let pokemenName = document.createElement('h1');
+  pokemenName.classList.add('Pokemen-name');
+let pokemenHeight = document.createElement('p');
+  pokemenHeight.classList.add('Pokemen-height');
+let pokemenType = document.createElement('p');
+  pokemenType.classList.add('Pokemen-type');
+
+let imageContainer = document.createElement('div');
+  imageContainer.classList.add('img-container');
+let pokemenImage = document.createElement('img');
+  pokemenImage.classList.add('Pokemen-image');
+
+    // PokemenList empty array
+  let PokemenList = [];
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150'; // API variable
 
   function add(pokemen) {
@@ -43,15 +41,66 @@ let pokemenRepository = (function () {
     let pokemenList = document.querySelector('.pokemen-list');
     let listItem = document.createElement('li');
     let button = document.createElement('button');
-    button.innerText = pokemen.name;
-    button.classList.add("button-class");
-    listItem.appendChild(button);
-    pokemenList.appendChild(listItem);
-    button.addEventListener('click', function(event){
+      button.innerText = pokemen.name;
+      button.classList.add("button-class");
+      listItem.appendChild(button);
+      pokemenList.appendChild(listItem);
+      button.addEventListener('click', function(event){
       showDetails(pokemen);
     });
   }
+//modal is inserted here
 
+  // SHOW MODAL FUNCTION
+  function showModal() {
+    modalContainer.classList.add('is-visible');
+  }
+
+  // HIDE MODAL
+  function hideModal() {
+    modalContainer.classList.remove('is-visible');
+  }
+
+    // TO CLOSE WINDOW OF MODAL
+    modalClose.addEventListener('click' , hideModal);
+
+    // WHEN ESC IS PRESSED TO CLOSE THE MODAL
+     window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+        hideModal();  
+      }
+    });
+
+    // WHEN OUTSIDE THE MODAL CLICKED
+    modalContainer.addEventListener('click', (e) => {
+      // Since this is also triggered when clicking INSIDE the modal
+      // We only want to close if the user clicks directly on the overlay
+      let target = e.target;
+        if (target === modalContainer) {
+          hideModal();
+        }
+      });
+
+  function showDetails(pokemon){
+    loadDetails(pokemon).then(function () {
+      pokemonName.innerHTML = pokemon.name;
+      pokemonHeight.innerHTML = 'Height: ' + pokemon.height;
+      pokemonType.innerHTML = 'Type: ' + pokemon.types;
+      pokemonImage.src = pokemon.imageUrl;
+      modalClose.innerHTML = "Close";
+        showModal();
+    });
+     
+    modal.appendChild(modalClose);
+    modal.appendChild(pokemonName);
+    modal.appendChild(pokemonHeight);
+    modal.appendChild(pokemonType);
+    modal.appendChild(imageContainer);
+    imageContainer.appendChild(pokemonImage);
+  }
+     
+
+//after adding Modal
   function loadList() {
     return fetch(apiUrl).then(function (response) {
       return response.json();
@@ -77,12 +126,12 @@ let pokemenRepository = (function () {
       // Now we add the details to the item
       item.imageUrl = details.sprites.front_default;
       item.height = details.height;
-      item.types = details.types;
+      item.types = details.types[0].type.name;
     }).catch(function (e) {
       console.error(e);
-    });
+    })
 }
-
+ 
 function showDetails(item) {
   pokemenRepository.loadDetails(item).then(function (){
     console.log(item);
@@ -96,25 +145,18 @@ function showDetails(item) {
     loadList: loadList,
     loadDetails: loadDetails,
     showDetails: showDetails,
+    showModal: showModal,
+    hideModal: hideModal,
     };
 }) ();
 
-pokemenRepository.add({ name: 'Kris' });
+// pokemenRepository.add({ name: 'Kris' });
 
-console.log(pokemenRepository.getAll());
+Object.keys(pokemenRepository).forEach(function(property) {
+  console.log(pokemenRepository[property]);
+});
 
-//console.log(this, "this is outside", this == document)
-/*
-PBV vs PBR
-const testObj = {};
-const testObj2 = {};
-const testObj3 = testObj;
-const aString = 'hello again';
-const stringAlong = aString;
-const anotherString = 'hello';
-console.log(aString === anotherString);
-console.log(testObj === testObj3)
-*/
+// console.log(pokemenRepository.getAll());
 
 //cleaner forEach() code using myLoopFunction -- updated to include new IIFE
   pokemenRepository.loadList().then(function() {
@@ -123,82 +165,7 @@ console.log(testObj === testObj3)
     });
   })
 
-  //console.log(this, "this is inside")
-  //console.log(Array.isArray(pokemen));
+let result = pokemenRepository.getAll().filter(pokemen => pokemen.length > 4);
+  console.log(result);
 
-  // --section was moved to function addListItem()--
-  // let pokemenList = document.querySelector('.pokemen-list');
-  // let listItem = document.createElement('li');
-  // let button = document.createElement('button');
-  // button.innerText = pokemen.name;
-  // button.classList.add("button-class");
-  // listItem.appendChild(button);
-  // pokemenList.appendChild(listItem);
-
-  // console.log(pokemen.length)
-  //   if (pokemen.height > 1) {
-  //     document.write(/*`<p> "${pokemen.name} (height: ${pokemen.height})" <b> I am the Tallest Pokemen!</b> </p>`*/);
-  //   } else {
-  //     document.write(/*`<p> "${pokemen.name} (height: ${pokemen.height})" </p>`*/);
-  //   }
-  //   //keeping code to use later
-  //   //console.log(Pokemen.name + ' is ' + Pokemen.height + ' tall and weighs' + Pokemen.weight + ' . ');
-  //   //console.log(Pokemen.name + ' can ' + Pokemen.abilities + ' . ');
-
-// other functions remain here
-
-// let pokemonRepository = (function () {
-//   let pokemonList = [];
-//   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-
-  // Other functions remain here
-
-//   function loadList() {
-//     return fetch(apiUrl).then(function (response) {
-//       return response.json();
-//     }).then(function (json) {
-//       json.results.forEach(function (item) {
-//         let pokemon = {
-//           name: item.name,
-//           detailsUrl: item.url
-//         };
-//         add(pokemon);
-//       });
-//     }).catch(function (e) {
-//       console.error(e);
-//     })
-//   }
-
-//   return {
-//     add: add,
-//     getAll: getAll,
-//     loadList: loadList
-//   };
-// })();
-
-// pokemonRepository.loadList().then(function() {
-//   // Now the data is loaded!
-//   pokemonRepository.getAll().forEach(function(pokemon){
-//     pokemonRepository.addListItem(pokemon);
-//   });
-// });
-
-// load list function below
-
-// let pokemonRepository = (function () {
-//   // Other functions here…
-
-//   function loadDetails(item) {
-//     let url = item.detailsUrl;
-//     return fetch(url).then(function (response) {
-//       return response.json();
-//     }).then(function (details) {
-//       // Now we add the details to the item
-//       item.imageUrl = details.sprites.front_default;
-//       item.height = details.height;
-//       item.types = details.types;
-//     }).catch(function (e) {
-//       console.error(e);
-//     });
-//   };
-//
+ 
