@@ -2,23 +2,31 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <link href="css/styles.css" rel="stylesheet" type="text/css" />
-  <title>PokeDex</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>simple js app</title>
 </head>
 
 <body>
-    <!-- <h1>Pokedex</h1> -->
-    <ul class = "pokemen-list">
-      <div id='model-container'>
-        <div class='modal'></div>
-      </div>
-    </ul>
-      
-     <script src="js/promise-polyfill.js"></script>
-     <script src="js/fetch-polyfill.js"></script>
-     <script src="js/scripts.js"></script>
+    <h1> Pokédex </h1>
+    <li class = "pokemon-list">
+        <!-- <button id="show-modal"> Show modal </button> -->
+        <!-- <button id="show-dialog"> Show dialog </button> -->
+        <div id="modal-container">
+            <div class="modal"></div>
+        
+          <!-- <div class="modal">
+            <button class="modal-close">Close</button>
+            <h1>Modal title</h1>
+            <p>Modal text</p>       
+          </div> -->
+        </div>
+    </li>
+    <script src ="js/promise-polyfill.js"></script>
+    <script src="js/fetch-polyfill.js"></script>
+    <script src="js/scripts.js"></script>
 </body>
 
 </html>
