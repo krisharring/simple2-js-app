@@ -86,3 +86,7 @@ button:hover {
   display: block;
   text-align: center;
 }
+
+li {
+  list-style-type: none;
+}
