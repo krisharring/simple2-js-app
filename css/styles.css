@@ -3,6 +3,7 @@ body {
   font-family: Arial, sans-serif;
   text-align: center;
   text-decoration: none;
+  background-color:rgba(44, 170, 132, 0.13);
 }
 
 .button-class {
@@ -52,7 +53,7 @@ button:hover {
   margin: auto;
   display: inline-block;
   box-sizing: border-box;
-  background: #fff;
+  background: rgb(145, 240, 192);
   padding: 15px;
   width: 100%;
   max-width: 700px;
