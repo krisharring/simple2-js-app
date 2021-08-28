@@ -6,6 +6,13 @@ body {
   background-color:rgba(44, 170, 132, 0.13);
 }
 
+.container-fluid{
+  background-color:rgba(79, 129, 22, 0.993);
+  border: none;
+  height: 100px;
+  padding: 20px;
+}
+
 .button-class {
   border: none;
   display: inline-block;
@@ -90,4 +97,8 @@ button:hover {
 
 li {
   list-style-type: none;
+}
+
+.selector-for-some-widget {
+  box-sizing: content-box;
 }
