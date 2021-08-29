@@ -15,59 +15,62 @@
   </head>
 
   <body>
-    <!-- navigation class code for bootstrap -->
-    <!-- <nav class="navbar navbar-light bg-light">
-      <a class="navbar-brand" href="#"></a>
+    <!-- header part with logo -->
+    <header class="header">
+      <a class="navbar-brand" href="#">
+      <img src="img/pokedex-image.png" class="img-fluid" alt="pokedex logo"> 
+      </a>
+    </header>
+
+    <!-- navigation class code for bootstrap
+    <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#"></a>
     </nav> -->
+    
+    <!-- bootstrap search bar -->
+    <form class="form-inline justify-content-center">
+      <input type="search" id="form1" class="form-control" />
+      <label class="form-label" for="form1"></label>
+    </form>
+    <p></p>
+    <p></p>
 
-     <!-- button trigger modal -->
-     
+    <!-- bootstrap modal button -->
+    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+    </button> -->
 
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col"></div>
-        <div class="col-8">
-          <img src="img/pokedex-image.png" class="img-fluid" alt="pokedex logo"> 
-        </div>
-        <div class="col"></div>
-      </div>
-    </div>
-
-    <!-- <div class="container">
-      <div class="row">
-        <div class="col align-self-start">
-          one of three columns
-        </div>
-        <div class="col align-self-center">
-          One of three columns
-        </div>
-        <div class="col align-self-end">
-          One of three columns
-        </div>
-      </div>
-    </div> -->
-
-
-    <!-- <h1> Pokédex </h1> -->
-    <div class="container">
-      <ul class ="pokemon-list">
-        <!-- <li>"pokemon-list"</li> -->
-          <!-- <button id="show-modal"> Show modal </button> -->
-          <!-- <button id="show-dialog"> Show dialog </button> -->
-          <div id="modal-container">
-              <div class="modal"></div>
-          
-            <!-- bootstrap button class -->
-            <!-- button type="button" class="btn btn-outline-dark btn-lg"><Dark</button>-->
-
-            <!-- <div class="modal">
-              <button class="modal-close">Close</button>
-              <h1>Modal title</h1>
-              <p>Modal text</p>       
-            </div> -->
+    <!-- bootstrap modal -->
+        <!-- modal -->
+        <div class="container text-center">
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel"></h5>
+                  <button type="button" id="button-x" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                </div>
+                <!-- <div class="modal-footer">
+                  <button type="button" id="close" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div> -->
+              </div>
+            </div>
           </div>
-      </ul>
-    </div>
+          <div class="number-headline"></div>
+          <div class="">
+            <ul class="pokemon-list list-unstyled row text-center"></ul>
+          </div>
+        </div>
+
+
+    <!-- button to top of page -->
+    <button type="button" class="btn btn floating btn-lg" id="btn-back-to-top">&#8593;</button>
+    
+
 
     <!-- javascript -->
     <script src ="js/promise-polyfill.js"></script>
