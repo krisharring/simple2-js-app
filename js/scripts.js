@@ -4,6 +4,8 @@ let pokemonRepository = (function() {
   
     function add(pokemon) {
       pokemonList.push(pokemon);
+      console.log(pokemon);
+
     }
   
     function getAll() {
