@@ -27,21 +27,21 @@ body {
 }
 
 #modal-container.is-visible {
-  /* CSS for modal container - add your own desired CSS styles here */
+  /* CSS for modal container - add your own desired CSS styles here  */
   display: block;
   text-align: center;
-}
+} 
 
 .pokemon-list {
   list-style-type: none;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
-} 
+}  */
 
-.selector-for-some-widget {
+/* .selector-for-some-widget {
   box-sizing: content-box;
-}
+} */
 
 .input-group {
   border-radius: 0;

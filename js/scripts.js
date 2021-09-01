@@ -10,11 +10,11 @@ let pokemonRepository = (function() {
       return pokemonList;
     }
   
-    function remove(start, number) {
-      document.write(`<br><p>${pokemonList[start].name} has been removed.
-        </p><p> This is the updated list:</p><br>`);
-      pokemonList.splice(start, number);
-    }
+    // function remove(start, number) {
+    //   document.write(`<br><p>${pokemonList[start].name} has been removed.
+    //     </p><p> This is the updated list:</p><br>`);
+    //   pokemonList.splice(start, number);
+    // }
 
     // adds pokemon to pokedex
     function addListItem(pokemon) {
@@ -28,12 +28,12 @@ let pokemonRepository = (function() {
       button.classList.add('btn', 'btn-primary');
       button.setAttribute ("data-target", "#pokemonModal");
       button.setAttribute("data-toggle", "modal");
-      // button.dataset.target = '#pokemonModal';
-      // button.dataset.toggle = 'modal';
+      button.dataset.target = '#pokemonModal';
+      button.dataset.toggle = 'modal';
       listItem.appendChild(button);
       list.appendChild(listItem);
       button.addEventListener('click', function() {
-        showDetails(pokemon);
+        showDetails(pokemonToShow);
       });
     }
   
@@ -70,7 +70,7 @@ let pokemonRepository = (function() {
       });
     }
   
-    function showModal(pokemon) {
+    function showModal(pokemonToShow) {
       // modalContainer.innerHTML = "";
 
       let modal = document.createElement('div');
@@ -146,7 +146,7 @@ let pokemonRepository = (function() {
     return {
       add: add,
       getAll: getAll,
-      remove: remove,
+      // remove: remove,
       addListItem: addListItem,
       loadList: loadList,
       loadDetils: loadDetails,
