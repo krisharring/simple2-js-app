@@ -23,44 +23,41 @@
         </a>
       </nav>
     </header>
+
     <!-- nav search bar -->
     <nav class="navbar navbar-light bg-light justify-content-between">
       <a class="navbar-brand" href="#">
         <img src="/img/OIP.jpeg" width="30" height="30" class="d-inline-block align-top" alt=""></a>
-      <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search Pokemon" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
+      <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Enter Pokemon" id="search-bar" aria-label="Search">
+              <button type="submit" class="btn btn-primary">Refresh</button>
+        </form>
     </nav>
     <br>
 
     <!-- bootstrap modal -->
-
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pokemonModal">Launch Demo Modal
-    </button>
-
-    <!-- Modal -->
-    <div class="modal fade" id="pokemonModal" tabindex="-1" role="dialog" aria-labelledby="pokemonModal" aria-hidden="true">
+    </div>
+        <!-- Modal !-->
+    <div class="modal" tabindex="-1" role="dialog" id="pokemon-modal">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="pokemonModal">Modal title</h5>
+            <h5 class="modal-title"></h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            ...
           </div>
-          <!-- <div class="modal-footer">
+          <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div> -->
+          </div>
         </div>
       </div>
     </div>
-      <ul class="pokemon-list list-group  list-unstyled "></ul>
+    <!-- Modal End !-->
+
+    <ul class="pokemon-list list-group  list-unstyled "></ul>
 
     <!-- button to top of page -->
     <button type="button" class="btn btn floating btn-lg" id="btn-back-to-top">&#8593;</button>
@@ -77,3 +74,5 @@
   </body>
 
 </html>
+
+
