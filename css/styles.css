@@ -1,8 +1,8 @@
 html,
 body {
   font-family: Arial, sans-serif;
-  /* text-align: center; */
-  /* text-decoration: none; */
+  text-align: center;
+  text-decoration: none;
   background-color:rgba(154, 190, 231, 0.13);
 }
 
@@ -12,38 +12,21 @@ body {
   margin-bottom: 20px;
 }
 
-#modal-container{
-  position: fixed;
-  padding: 20px;
-
-  box-sizing: border-box;
-  
-  z-index: 999;
-
-  overflow: auto;
-
-  display: grid;
-  text-align: center;
+.button {
+  width: 150px;
+  margin-bottom: 10px;
 }
 
 #modal-container.is-visible {
   /* CSS for modal container - add your own desired CSS styles here  */
   display: block;
   text-align: center;
-} 
+}
 
 .pokemon-list {
   list-style-type: none;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-}  */
+  gap: 2px;
+}  
 
-/* .selector-for-some-widget {
-  box-sizing: content-box;
-} */
-
-.input-group {
-  border-radius: 0;
-  text-align: center;
-}
